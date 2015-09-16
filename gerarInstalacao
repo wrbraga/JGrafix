@@ -1,0 +1,23 @@
+#!/bin/bash
+
+DIRBASE="$HOME/JGrafix"
+rm -rf $DIRBASE
+mkdir $DIRBASE
+
+cp -r lua $DIRBASE
+mkdir $DIRBASE/conf
+cp  conf/grafix.lic $DIRBASE/conf
+mkdir $DIRBASE/id
+cp -r lib $DIRBASE
+cp internacionais.txt $DIRBASE
+cp datas.dat $DIRBASE
+cp -r resource $DIRBASE
+cp indicesbovespa $DIRBASE
+cp jgrafix $DIRBASE
+cp paraMinusculas $DIRBASE
+mkdir -p $DIRBASE/dados/cfg
+
+find $DIRBASE -name .svn | xargs rm -rf
+mv $DIRBASE/lib/libluajava-1.1.so $DIRBASE/.
+mv $DIRBASE/lib/luajava-1.1.dll $DIRBASE/.
+

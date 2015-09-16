@@ -1,0 +1,13 @@
+
+#!/bin/bash
+#for file in `find . -name $1`
+for file in `find .`
+do
+novo=`echo $file | dd conv=lcase 2>/dev/null`
+if [ $file != $novo ]
+then
+ echo "renomeando de $file para $novo"
+ mv $file $novo 
+fi
+#echo $file
+done

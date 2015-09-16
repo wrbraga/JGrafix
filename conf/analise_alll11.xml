@@ -1,0 +1,32 @@
+<grafix.graficos.elementos.ResumoAnaliseAcao>
+  <marcas/>
+  <resumosElementos>
+    <grafix.graficos.elementos.ResumoElemento>
+      <classeName>Linha</classeName>
+      <cor>
+        <falpha>0.0</falpha>
+        <value>-16776961</value>
+      </cor>
+      <direcaoReta>2</direcaoReta>
+      <nomeEixo>candles</nomeEixo>
+      <posicaoReal class="java.awt.geom.Rectangle2D-Double">
+        <height>7.544166108224758</height>
+        <width>5.55206827497168E9</width>
+        <x>-2.1699357819562012E12</x>
+        <y>49.27516814159293</y>
+      </posicaoReal>
+    </grafix.graficos.elementos.ResumoElemento>
+    <grafix.graficos.elementos.ResumoElemento>
+      <classeName>Quadro</classeName>
+      <cor reference="../../grafix.graficos.elementos.ResumoElemento/cor"/>
+      <direcaoReta>0</direcaoReta>
+      <nomeEixo>candles</nomeEixo>
+      <posicaoReal class="java.awt.geom.Rectangle2D-Double">
+        <height>7.879462379701415</height>
+        <width>4.902358157687744E9</width>
+        <x>-2.1596318256158596E12</x>
+        <y>55.141259587020656</y>
+      </posicaoReal>
+    </grafix.graficos.elementos.ResumoElemento>
+  </resumosElementos>
+</grafix.graficos.elementos.ResumoAnaliseAcao>
