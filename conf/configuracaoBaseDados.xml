@@ -1,12 +1,12 @@
 <grafix.basedados.ConfiguracaoBaseDados>
   <atualizaViaInternet>false</atualizaViaInternet>
   <formatoBaseDados></formatoBaseDados>
-  <pastaBDIS>bdi/</pastaBDIS>
+  <pastaBDIS>/home/wrbraga/git/JGrafix/bdi/</pastaBDIS>
   <periodicidade>1</periodicidade>
   <porta>8080</porta>
   <pregoesMostrados>100</pregoesMostrados>
   <proxy></proxy>
-  <senhaProxy>[C@1913f8d</senhaProxy>
+  <senhaProxy>[C@12dc90</senhaProxy>
   <senhaVendor></senhaVendor>
   <tiposPapeis>
     <bonus>true</bonus>

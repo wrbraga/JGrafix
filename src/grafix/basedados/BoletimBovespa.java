@@ -46,9 +46,14 @@ import org.jfree.data.time.Day;
  * @author joao
  */
 class BoletimBovespa extends Boletim {
-    // http://www.bmfbovespa.com.br/fechamento-pregao/bdi/bdi0915.zip
+    // http://www.bmfbovespa.com.br/fechamento-pregao/bdi/bdi0915.zip 
     // http://www.bmfbovespa.com.br/fechamento-pregao/bdi/ajus0915.zip
     // http://www.negrijp.blog.br/2011/02/download-dos-arquivos-de-mercado-da-bm.html
+    
+    /* Link para cotações hitóricas anuais, no exemplo abaixo é o ano de 2010
+     http://www.bmfbovespa.com.br/InstDados/SerHist/COTAHIST_A2010.ZIP
+    */
+    
     private static String urlBovespa = "http://www.bmfbovespa.com.br/fechamento-pregao/bdi/";
    
     private BufferedReader b = null;

@@ -66,7 +66,7 @@ abstract public class MercadoNacional implements Mercados {
         Day datad=null;
         
         //   telaLog = new DialogAtualizar();
-        Day dataHoje = Uteis.hoje();
+        Day dataHoje = Datas.hoje();
         BufferedReader brDatas=null;
         Day ultimaAtualizacao= this.ultimaAtualizacao();
         
@@ -157,6 +157,13 @@ abstract public class MercadoNacional implements Mercados {
         }
         
         return retorno;
+    }
+    
+    public int atualizaAnual(){
+        if( boletim.extraiDados()==0) {
+            this.inclueData(arquivoDatasJaRealizadas, "01/01/2010");
+        }
+        return 0;
     }
     
     private boolean operacaoCancelada() {

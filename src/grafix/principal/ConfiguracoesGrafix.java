@@ -28,6 +28,7 @@ import grafix.auxiliar.LeitorArquivoConfiguracao;
 public class ConfiguracoesGrafix {
     
     private String pathBaseDados;
+    private String pathBDI;
     private String listaAcoes;
     private String lookAndFeel;
     private int espacoPrevisao;
@@ -74,6 +75,7 @@ public class ConfiguracoesGrafix {
     
     private ConfiguracoesGrafix() {
         pathBaseDados = DEFAULT_PATH_DADOS;
+        pathBDI = DEFAULT_PATH_BDI;
         listaAcoes = DEFAULT_LISTA_ACOES;
         lookAndFeel = DEFAULT_LOOK_FEEL;
         espacoPrevisao = DEFAULT_ESPACO_PREVISAO;
@@ -109,6 +111,14 @@ public class ConfiguracoesGrafix {
     
     public void setPathBaseDados(String pathBaseDados) {
         this.pathBaseDados = pathBaseDados;
+    }
+    
+    public String getPathBDI() {
+        return pathBDI;
+    }
+    
+    public void setPathBDI(String pathBDI) {
+        this.pathBDI = pathBDI;
     }
     
     public String getListaAcoes() {

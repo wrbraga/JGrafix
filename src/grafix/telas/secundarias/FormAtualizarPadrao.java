@@ -22,9 +22,13 @@
 
 package grafix.telas.secundarias;
 
+import grafix.auxiliar.ManipuladorArquivos;
 import grafix.auxiliar.Utils;
 import grafix.basedados.Atualiza;
+import grafix.basedados.Uteis;
 import grafix.principal.Controle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtualizacao {
 
@@ -164,8 +168,9 @@ public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtua
 
 
     }
-    // <editor-fold defaultstate="collapsed" desc=" CÃ³digo Gerado ">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+
         buttonGroup1 = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -180,6 +185,7 @@ public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtua
         btAtualizaTodos = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
         jButton1 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         rbDownload = new javax.swing.JRadioButton();
@@ -197,12 +203,13 @@ public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtua
             }
         });
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Atualiza\u00e7\u00f5es"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Atualizações"));
+
         jLabel1.setText("Data do Sistema:");
 
-        jLabel2.setText("\u00daltima atualiza\u00e7\u00e3o Bovespa:");
+        jLabel2.setText("Última atualização Bovespa:");
 
-        jLabel3.setText("\u00daltima atualiza\u00e7\u00e3o BM&F:");
+        jLabel3.setText("Última atualização BM&F:");
 
         jTextField1.setEditable(false);
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -245,10 +252,17 @@ public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtua
             }
         });
 
-        jButton1.setText("Seleciona Pap\u00e9is Yahoo");
+        jButton1.setText("Seleciona Papéis Yahoo");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
+            }
+        });
+
+        jButton2.setText("Atualização manual");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
             }
         });
 
@@ -260,41 +274,47 @@ public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtua
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
-                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
-                                .add(jLabel1)
-                                .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                            .add(org.jdesktop.layout.GroupLayout.LEADING, jPanel1Layout.createSequentialGroup()
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                            .add(jPanel1Layout.createSequentialGroup()
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
                                     .add(jLabel2)
                                     .add(jLabel3))
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING, false)
                                     .add(jTextField3)
-                                    .add(jTextField2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE))
+                                    .add(jTextField2)))
+                            .add(jPanel1Layout.createSequentialGroup()
+                                .add(jLabel1)
                                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
-                                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                                    .add(btAtualizaBMF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                                    .add(btAtualizaBovespa, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                                    .add(btAtualizaInternacional, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)))))
+                                .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, 80, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.TRAILING)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, btAtualizaBMF, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, btAtualizaBovespa, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, btAtualizaInternacional, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
+                            .add(org.jdesktop.layout.GroupLayout.LEADING, jButton2, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
                         .add(284, 284, 284)
-                        .add(btAtualizaTodos, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))
+                        .add(btAtualizaTodos, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE))
                     .add(jPanel1Layout.createSequentialGroup()
                         .add(284, 284, 284)
                         .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                            .add(jButton1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE)
-                            .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 271, Short.MAX_VALUE))))
+                            .add(jButton1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE)
+                            .add(jSeparator1, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 293, Short.MAX_VALUE))))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
             .add(jPanel1Layout.createSequentialGroup()
-                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
-                    .add(jLabel1)
-                    .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
-                .add(20, 20, 20)
+                .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
+                    .add(jPanel1Layout.createSequentialGroup()
+                        .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
+                            .add(jLabel1)
+                            .add(jTextField1, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE))
+                        .add(20, 20, 20))
+                    .add(org.jdesktop.layout.GroupLayout.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .add(jButton2)
+                        .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)))
                 .add(jPanel1Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.BASELINE)
                     .add(jLabel2)
                     .add(btAtualizaBovespa)
@@ -314,15 +334,15 @@ public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtua
                 .add(btAtualizaTodos))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Configura\u00e7\u00f5es"));
-        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Atualiza\u00e7\u00e3o"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Configurações"));
+
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Tipo de Atualização"));
+
         rbDownload.setText("Download (Internet)");
         rbDownload.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        rbDownload.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
-        rbLocal.setText("Arquivos locais (no disco r\u00edgido)");
+        rbLocal.setText("Arquivos locais (no disco rígido)");
         rbLocal.setBorder(javax.swing.BorderFactory.createEmptyBorder(0, 0, 0, 0));
-        rbLocal.setMargin(new java.awt.Insets(0, 0, 0, 0));
 
         org.jdesktop.layout.GroupLayout jPanel3Layout = new org.jdesktop.layout.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -352,7 +372,7 @@ public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtua
             }
         });
 
-        btPreferencias.setText("Prefer\u00eancias");
+        btPreferencias.setText("Preferências");
         btPreferencias.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btPreferenciasActionPerformed(evt);
@@ -368,8 +388,8 @@ public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtua
                 .add(jPanel3, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .add(20, 20, 20)
                 .add(jPanel2Layout.createParallelGroup(org.jdesktop.layout.GroupLayout.LEADING)
-                    .add(jButton5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
-                    .add(btPreferencias, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE))
+                    .add(jButton5, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .add(btPreferencias, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -413,8 +433,9 @@ public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtua
                 .add(jPanel2, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE, org.jdesktop.layout.GroupLayout.DEFAULT_SIZE, org.jdesktop.layout.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(org.jdesktop.layout.LayoutStyle.RELATED)
                 .add(btOK)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
@@ -469,7 +490,18 @@ public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtua
             atualiza = new Atualiza(this);
         }
     }//GEN-LAST:event_btPreferenciasActionPerformed
-        // DeclaraÃ§Ã£o de variÃ¡veis - nÃ£o modifique//GEN-BEGIN:variables
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        
+        try {
+            String a = ManipuladorArquivos.procurarArquivo(this, Controle.getConfiguracoesGrafix().getPathBaseDados());            
+            Uteis.unZip(a, ManipuladorArquivos.getPath(a), true, this);
+        } catch (Exception ex) {
+            Logger.getLogger(FormAtualizarPadrao.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btAtualizaBMF;
     private javax.swing.JButton btAtualizaBovespa;
     private javax.swing.JButton btAtualizaInternacional;
@@ -478,6 +510,7 @@ public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtua
     private javax.swing.JButton btPreferencias;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -491,7 +524,7 @@ public class FormAtualizarPadrao extends javax.swing.JDialog implements FormAtua
     private javax.swing.JTextField jTextField3;
     private javax.swing.JRadioButton rbDownload;
     private javax.swing.JRadioButton rbLocal;
-    // Fim da declaraÃ§Ã£o de variÃ¡veis//GEN-END:variables
+    // End of variables declaration//GEN-END:variables
 
     public void cancelarAtualizacao() {
         informarLog("******* Aguarde, atualização sendo cancelada ... ");
