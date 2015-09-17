@@ -115,7 +115,8 @@ public class Atualiza {
                     } else {
                         dataInicial = new Day(1,9,1998);
                     }
-                    Day dataFim = Uteis.hoje();
+                    
+                    Day dataFim = Datas.hoje();
                     if(dataInicial.compareTo(dataFim)<=0) {
                         formAtualizacao.informarLog("Periodo " + dataInicial + " até " + dataFim);
                         if(this.trazInternacional(dataInicial, dataFim,codYahoo, codGrafix)==0) {
@@ -227,20 +228,4 @@ public class Atualiza {
         this.atualizaInternacionais();
     }
     
-    
-    
-//    public static void main(String args[]) throws IOException{
-//        
-//        
-//        Atualiza atualiza = new Atualiza();
-//        // atualiza.atualiza("bovespa");
-//        // atualiza.atualiza("bmf");
-//        // atualiza.extraiDadosBMF("BD_Final.txt");
-//        String lin = "Datesasd ada";
-//        boolean amt = lin.substring(0,4).equals("Date");
-//        //atualiza.atualizaInternacionais();
-//        RedirectedFrame r = new RedirectedFrame(true);
-//        atualiza.atualizaBovespa();
-//        
-//    }
 }
