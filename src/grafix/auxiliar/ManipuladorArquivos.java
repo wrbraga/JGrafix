@@ -220,6 +220,23 @@ public class ManipuladorArquivos {
         }
     }
     
+    public static String procurarArquivo(Component parent, String pathDefault) {
+        try {
+            JFileChooser chooser = new JFileChooser(new File(pathDefault));
+            chooser.setDialogType(JFileChooser.OPEN_DIALOG);            
+            int returnVal = chooser.showOpenDialog(parent);
+            if(returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = chooser.getSelectedFile();
+                return file.getAbsolutePath();
+            } else {
+                return pathDefault;
+            }
+        } catch (Exception e) {
+            exibirErro("Ocorreu um erro!");
+            return pathDefault;
+        }
+    }
+    
     public static void escreverEmArquivoSobrescrevendo(String arquivo, String conteudo) {
         ManipuladorArquivos.apagarArquivo(arquivo);
         PrintWriter pwOut;
@@ -241,12 +258,8 @@ public class ManipuladorArquivos {
         return new File(path).listFiles();
     }
     
-//    public static void main(String [] args) {
-//        String lista[] = ManipuladorArquivos.listaDir(".", "sada");
-//        for (int i = 0; i < lista.length; i++) {
-//            System.out.println(lista[i]);
-//            
-//        }
-//        
-//    }
+    public static String getPath(String arquivo) {
+        return arquivo.substring(0, arquivo.lastIndexOf(File.separator));
+    }
+    
 }
