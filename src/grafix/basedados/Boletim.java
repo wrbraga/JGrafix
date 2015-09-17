@@ -90,6 +90,11 @@ abstract class Boletim {
         return file.exists();
     }
     
+    public boolean existeBoletimAnual(String arquivo) {
+        File file = new File(arquivo);
+        return file.exists();
+    }
+    
     public int download() {
         Download download = null;
         download = instaciaDownload();
