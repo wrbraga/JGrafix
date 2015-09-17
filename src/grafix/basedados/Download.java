@@ -74,8 +74,7 @@ public class Download {
         this.formAtualizacao = formAtualizacao;
     }
     
-    public Download(String url, String servidorProxy,
-            int portaProxy, String usuarioProxy, String senhaProxy, boolean mostraProgresso){
+    public Download(String url, String servidorProxy, int portaProxy, String usuarioProxy, String senhaProxy, boolean mostraProgresso){
         this(url, mostraProgresso);
         this.usaProxy=true;
         this.servidorProxy=servidorProxy;
@@ -125,9 +124,7 @@ public class Download {
             url2 = new URI(this.getUrl(), false);
             ff = url2.toString();
         } catch (URIException ex) {
-            ex.printStackTrace();
         } catch (NullPointerException ex) {
-            ex.printStackTrace();
         }
         
         GetMethod method = new GetMethod(ff);
@@ -157,7 +154,6 @@ public class Download {
                     totalBytesRead += loopBytesRead;
                     progresso = (int) ( (float) totalBytesRead / contentLength *100);
                     if(progresso >=0 || progresso <=100) {
-                        //   System.out.println("download " + progresso + " %");
                         if(this.mostraProgresso) formAtualizacao.definirPercentualProgresso(progresso);
                     }
                 }
@@ -168,12 +164,10 @@ public class Download {
         } catch (HttpException e) {
             retorno=2;
             System.err.println("Fatal protocol violation: " + e.getMessage());
-            e.printStackTrace();
             
         } catch (IOException e) {
             retorno=3;
             System.err.println("Fatal transport error: " + e.getMessage());
-            e.printStackTrace();
         } finally {
             // Release the connection.
             method.releaseConnection();
@@ -192,7 +186,6 @@ public class Download {
             url = new URL(this.url);
             con = url.openConnection();
         } catch (Exception ex) {
-            ex.printStackTrace();
             return retorno;
         }
         if(this.usaProxy) {
@@ -238,7 +231,6 @@ public class Download {
             url = new URL(this.url);
             con = url.openConnection();
         } catch (Exception ex) {
-            ex.printStackTrace();
             return retorno;
         }
         if(this.usaProxy) {
@@ -263,21 +255,16 @@ public class Download {
             int readLen = 0;
             byte[] buffer = new byte[4096];
             int bytes = 0;
-          //  int sfs =   gzip.      //con.getInputStream().available();
+          
             int total = con.getContentLength();
             if(this.mostraProgresso) this.formAtualizacao.definirPercentualProgresso(0);
             while( (readLen=gzip.read(buffer, 0, buffer.length))>0)  {
-                  os.write(buffer, 0, readLen);
-                //  int sfs =  con.getInputStream().available();
+                  os.write(buffer, 0, readLen);               
                   bytes+=readLen;
-                  if(this.mostraProgresso) this.formAtualizacao.informaBytesLidos(bytes);
-                  // float sd = (float)(total-sfs)/(float)total*100.0f;
-                 // this.formAtualizacao.informarLog("Baixados" + (total - sfs) + " bytes de " + total + "progresso " + (int) sd);
-                 // this.formAtualizacao.definirPercentualProgresso( (int) sd);
+                  if(this.mostraProgresso) this.formAtualizacao.informaBytesLidos(bytes);                 
             }
             retorno =  os.toString();
         } catch (IOException ex) {
-            ex.printStackTrace();
         }
         
         return retorno;
