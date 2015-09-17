@@ -32,8 +32,10 @@
 
 package grafix.basedados;
 
-import java.util.Calendar;
-import org.jfree.data.time.Day;
+import grafix.telas.secundarias.FormAtualizacao;
+import java.io.*;
+import java.util.*;
+import java.util.zip.*;
 
 /**
  *
@@ -71,12 +73,50 @@ public class Uteis {
     
     }
     
-     public static Day hoje() {
-        Calendar calendar = Calendar.getInstance();
-        Day dataHoje = new Day(calendar.get(Calendar.DAY_OF_MONTH),
-                1+calendar.get(Calendar.MONTH),
-                calendar.get(Calendar.YEAR));
-        return dataHoje;
+     /***
+      * Função criada para descompactar qualquer arquivo ZIP.
+      * Na classe Boletim há um método chamado descompactaArquivo()
+      * que faz a mesma coisa.
+      * 
+      * Parâmetros:
+      * @param zipname - Nome do arquivo ZIP
+      * @param destino - Nome do arquivo de destino
+      * @param mostraProgresso - true/false para indicar o proresso
+      * @param formAtualizacao - Form que exibirá.
+      * @return 
+      * @throws java.lang.Exception 
+     */
+    public static String unZip(String zipname, String destino, boolean mostraProgresso, FormAtualizacao formAtualizacao) throws Exception {        
+        ZipFile zip = new ZipFile(zipname);
+        Enumeration conteudo = zip.entries();
+       
+        try {
+            while(conteudo.hasMoreElements()) {
+                ZipEntry elemento = (ZipEntry)conteudo.nextElement();
+                System.out.println(elemento.getName());
+                if(elemento.isDirectory()) {
+                    (new File(destino + File.separator + elemento.getName())).mkdir();
+                    continue;
+                
+                }              
+                gravaInputStream(zip.getInputStream(elemento), new BufferedOutputStream(new FileOutputStream(destino + File.separator + elemento.getName())));
+                
+            }
+            
+        } catch(Exception e) {
+            
+        }
+        
+        return zip.toString();
+    }
+    
+    public static final void gravaInputStream(InputStream in, OutputStream out) throws IOException {
+        byte[] buffer = new byte[1024];
+        int len;
+        while((len = in.read(buffer)) >= 0)
+          out.write(buffer, 0, len);
+        in.close();
+        out.close();
     }
     
 }
